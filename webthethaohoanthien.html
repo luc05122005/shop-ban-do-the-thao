@@ -1,0 +1,534 @@
+    <!DOCTYPE html>
+  <html lang="vi">
+  <head>
+    
+
+    <meta charset="UTF-8" />
+    <title>Shop Đồ Thể Thao</title>
+    <style>
+      body {
+
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url(https://cdn.hpdecor.vn/wp-content/uploads/2021/09/shop-thoi-trang-the-thao-trang-uyen-2.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        color: white;
+
+      }
+      header {
+        background: rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        background-repeat: repeat;
+        background-attachment: fixed;
+      }
+      nav {
+        background: rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        gap: 30px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .section {
+        background: rgba(0, 0, 0, 0.6);
+        margin: 30px auto;
+        padding: 20px;
+        max-width: 1000px;
+        border-radius: 10px;
+      }
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+      }
+      .product {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .product img {
+        width: 100%;
+        border-radius: 8px;
+      }
+      button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: orange;
+        color: black;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: gold;
+      }
+      footer {
+        background: rgba(0, 0, 0, 0.9);
+        text-align: center;
+        padding: 15px;
+        position: relative;
+        color: white;
+      }
+    .highlight {
+      background-color: yellow;
+      transition: background-color 0.5s ease;
+    }
+  </style>
+
+  </head>
+  <body>
+    <header>
+<h1 style="
+  color: white; 
+  font-size: 40px; 
+  text-shadow: 2px 2px 8px black;
+  -webkit-text-stroke: 1px black;">
+  🏆 Shop Đồ Đá Banh Toàn Sport
+</h1>
+    </header>
+    <nav>
+      <a href="#quan-ao">Quần Áo</a>
+      <a href="#giay">Giày</a>
+      <a href="#phu-kien">Phụ Kiện</a>
+      <a href="#gio-hang">Giỏ Hàng</a>
+      <a href="#lien-he">Liên Hệ</a>
+      <a href="#lich-su">Lịch Sử Mua Hàng</a>
+      <!-- Nút đăng nhập có icon -->
+<style>
+nav {
+  display: flex;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  border: 2px solid #ffcc00;
+  background-color: rgba(255, 204, 0, 0.1);
+  box-shadow: 0 0 10px #ffcc00;
+}
+</style>
+  <!-- Overlay nền mờ -->
+  <div id="formOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index: 999;"></div>
+
+  <!-- Form đăng nhập / đăng ký -->
+  <div id="formContainer" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:white; color:black; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index: 1000;">
+    <h2 style="text-align:center;">🔐 Đăng nhập / Đăng ký</h2>
+    <input id="username" type="text" placeholder="Tên đăng nhập" style="width:100%; padding:8px; margin:10px 0;" />
+    <input id="password" type="password" placeholder="Mật khẩu" style="width:100%; padding:8px; margin:10px 0;" />
+    <input id="phone" type="text" placeholder="Số điện thoại" style="width:100%; padding:8px; margin:10px 0;" />
+    <div style="text-align:center;">
+      <button onclick="dangKy()" style="margin-right:10px;">Đăng ký</button>
+      <button onclick="dangNhap()">Đăng nhập</button>
+      <button onclick="dongForm()" style="margin-left:10px; background-color: crimson; color:white;">Đóng</button>
+    </div>
+  </div>
+    </nav>
+  <div style="text-align:center;">
+      <input type="text" id="searchInput" placeholder="Tìm sản phẩm..." style="margin: 20px; padding: 10px; width: 300px;">
+      <div id="noResult">Không tìm thấy sản phẩm nào</div>
+    </div>
+    <!-- QUẦN ÁO -->
+    <div class="section" id="quan-ao">
+      <h2>👕 Quần Áo Bóng Đá</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe1qPRL_maYzXHQUEp9IbP9Z5Q_t3WzMNZVg&s" alt="Áo MU" />
+          <p>Áo Manchester United </p>
+          <p>450.000đ</p>
+          <button onclick="themVaoGio('Áo MU', 450000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+        <img src="https://www.jordan1.vn/wp-content/uploads/2024/03/s-l640.png" alt="Áo Barcelona" />
+          <p>Áo Barcelona</p>
+          <p>470.000đ</p>
+        <button onclick="themVaoGio('Áo Barcelona', 470000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://product.hstatic.net/200000293662/product/b1cab6bc-50cb-4720-b1e3-a04cd3ad8d2f_a56e185fc6b8444ba4db130fc4dc352d.jpg" alt="Áo Arsenal" />
+            <p>Áo Arsenal</p>
+            <p>430.000đ</p>
+            <button onclick="themVaoGio('Áo Arsenal', 430000)">Thêm vào giỏ</button>
+            </div>
+      <div class="product">
+        <img src="https://hidosport.vn/wp-content/uploads/2024/09/quan-ao-inter-milan-mau-xanh-san-nha-2025-ao-player.webp" alt="Áo Inter Milan" />
+        <p>Áo Inter Milan</p>
+        <p>460.000đ</p>
+        <button onclick="themVaoGio('Áo Inter Milan', 460000)">Thêm vào giỏ</button>
+      </div>
+      <div class="product">
+      <img src="https://product.hstatic.net/200000293662/product/140_36d6f492988f4f0cb1e1295f43c04bf2_large.png" alt="Áo PSG" />
+      <p>Áo Paris Saint-Germain</p>
+      <p>480.000đ</p>
+      <button onclick="themVaoGio('Áo Paris Saint-Germain', 480000)">Thêm vào giỏ</button>
+      </div>  
+        <div>
+          <div class="product">
+          <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTFkYA2SOpkJZPjWwPjffLFvp7rQadx7rX_d0JfQGXSrHE8k6fWJCx9KiqWRCAUeJ1sF7CQeSZzmbhqWxhuYA4oO5KWj2sUeL4ZinQmr2V4hNNRX0qyoixe5g&usqp=CAc" alt="Áo MU" />
+          <p>Áo Real Madrid 25/26</p>
+          <p>450.000đ</p>
+          <button onclick="themVaoGio('Áo Real Madrid', 450000)">Thêm vào giỏ</button>
+        </div>
+      </div>
+      <div>
+          <div class="product">
+          <img src="https://wikasports.com/wp-content/uploads/2024/04/ao-bong-da-wika-hd14-elite-hoang-duc-trang-2.jpg"alt="Áo WIKA" />
+          <p>Áo Thể Thao Wika </p>
+          <p>239.000đ</p>
+          <button onclick="themVaoGio('Ao The Thao Wika', 239000)">Thêm vào giỏ</button>
+        </div>
+      </div>
+      <div>
+          <div class="product">
+          <img src="https://www.sporter.vn/wp-content/uploads/2024/05/Ra-mat-ao-bong-da-manchester-city-san-nha-2425-1.jpg"alt="Áo WIKA" />
+          <p>Áo Manchester City </p>
+          <p>400.000đ</p>
+          <button onclick="themVaoGio('Áo Manchester City', 400000)">Thêm vào giỏ</button>
+        </div>
+      </div> 
+    </div>
+
+    <!-- GIÀY -->
+    <div class="section" id="giay">
+      <h2>👟 Giày Đá Banh</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://www.sport9.vn/images/thumbs/002/0023579_nike-air-zoom-mercurial-vapor-16-pro-tf-trangxanh-fq8687-400.jpeg?preset=large&watermark=default" alt="Nike Mercurial" />
+          <p> Nike Mercurial</p>
+          <p>1.200.000đ</p>
+          <button onclick="themVaoGio('Nike Mercurial', 1200000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://product.hstatic.net/1000061481/product/_web_ballak02-01-01-01-01-02-02-02-02-02-02-02-02-02-02-02-01-01-01-01_cf2e7fdb2c92480ebbd576c153ccd1a3_medium.jpg" alt="Nike Tiempo Legend 10 Pro" />
+          <p> Nike Tiempo Legend 10 Pro</p>
+          <p>2.500.000đ</p>
+          <button onclick="themVaoGio('Nike Tiempo Legend 10 Pro', 2500000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://cdn.hstatic.net/products/1000061481/8707_28193db555d74410bd2c9523e1fbc285_medium.jpg" alt=" Nike PhanTom GX II ELITE AG-PRO" /> 
+          <p> Nike PhanTom GX II ELITE AG-PRO</p>
+          <p>4.560.000đ</p>
+          <button onclick="themVaoGio(' Nike PhanTom GX II ELITE AG-PRO', 4560000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://cdn.hstatic.net/products/1000061481/b51122529ddf491f9b1319cbab063ffd_a1b59953800044938935ec6ec5a772fa_medium.jpg" alt="Futsal Joma Top Flex 2502 -" /> 
+          <p> Futsal Joma Top Flex 2502 -</p>
+          <p>1.560.000đ</p>
+          <button onclick="themVaoGio(' Futsal Joma Top Flex 2502 -', 1560000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://product.hstatic.net/200000278317/product/nh-hung-futsal-giay-da-bong-nike-lunar-gato-ii-580456-012-xanh-chuoi-1_e43fe01244eb403cb117bd7e132e2b2e_grande.jpg" alt=" Nike Lunar Gato II" /> 
+          <p> Nike Lunar Gato II </p>
+          <p>2.390.000đ</p>
+          <button onclick="themVaoGio(' Nike PhanTom GX II ELITE AG-PRO', 2390000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://product.hstatic.net/200000278317/product/g-futsal-giay-da-bong-adidas-predator-25-league-l-tf-id0910-do-trang-1_66f2c88ff5814025bc42506fd4c440c3_grande.jpg" alt=" ADIDAS PREDATOR 25 LEAGUE LƯỠI GÀ LẬT TF" /> 
+          <p> Adidas Predator 25 League Lưỡi Gà Lật TF</p>
+          <p>1.990.000đ</p>
+          <button onclick="themVaoGio(' ADIDAS PREDATOR 25 LEAGUE LƯỠI GÀ LẬT TF', 1990000)">Thêm vào giỏ</button>
+          
+        </div>
+        <div class="product">
+          <img src="https://product.hstatic.net/200000278317/product/giay-da-banh-adidas-top-sala-competition-gy9055-den-trang-1_6e6524ff698a4dfeb8bb80380c420c5f_grande.jpg" /> 
+          <p> Adidas Top Sala Competition</p>
+          <p>1.790.000đ</p>
+          <button onclick="themVaoGio(' Adidas Top Sala Competition', 1790000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://product.hstatic.net/200000278317/product/thanh-hung-futsal-giay-da-bong-adidas-f50-pro-tf-ie1219-xanh-hong-1_7303a4b2b7e648c0a31d04b9ceba527e_grande.jpg" /> 
+          <p> ADIDAS F50 PRO TF - IE1219 - XANH/HỒNG</p>
+          <p>2.790.000đ</p>
+          <button onclick="themVaoGio(' ADIDAS F50 PRO TF - IE1219 - XANH/HỒNG', 2790000)">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHỤ KIỆN -->
+    <div class="section" id="phu-kien">
+      <h2>🎽 Phụ Kiện</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://down-vn.img.susercontent.com/file/02015e17c133d08321a926f0311afd0d" alt="Băng Đầu" />
+          <p>Băng Đầu thể thao</p>
+          <p>160.000đ</p>
+          <button onclick="themVaoGio('Bang Dau The Thao', 160000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://product.hstatic.net/1000061481/product/3346f4e17946482db9a1d21cb9f015d0_4c747bfc2d4949e69efc348590d4d8cf_1024x1024.jpeg" alt="Băng Keo Vải Thể Thao" />
+          <p>Băng Keo Vải Thể Thao</p>
+          <p>30.000đ</p>
+          <button onclick="themVaoGio('Bang Keo Vai The Thao', 30000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfaCXnaSfyFQZVHk_poH7OAaDVFd7OLCv9UQ&s" alt="Bó gối đàn hồi " />
+          <p>Bó gối đàn hồi </p>
+          <p>200.000đ</p>
+          <button onclick="themVaoGio('Bo Goi Dan Hoi', 200000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://pos.nvncdn.com/822bfa-13829/ps/20180512_phOPpNOYhb0MfHkE4OyNftDR.jpg" alt="Vớ chống trượt " />
+          <p>Vớ Chống Trượt </p>
+          <p>50.000đ</p>
+          <button onclick="themVaoGio('Vo Chong Truot', 50000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://product.hstatic.net/200000278317/product/bong-futsal-gerustar-2030-vang-xanh-2_def85459765b4ae4ab91ce6672d81727.jpg" alt="Banh 2030" />
+          <p>Banh 2030 </p>
+          <p>350.000đ</p>
+          <button onclick="themVaoGio('Bo Goi Dan Hoi', 350000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMgtF9g501dldke1MKb6_CzuHM-KJ28J7-UA&s" alt="Banh Adidas Al Rihla Pro World Cup 2022 OMB H57783" />
+          <p>Banh Adidas Al Rihla Pro World Cup 2022 OMB H57783 </p>
+          <p>1.500.000đ</p>
+          <button onclick="themVaoGio('Banh Adidas Al Rihla Pro WC 2022 OMB H57783', 1500000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+          <img src="https://thuhiensport.com/wp-content/uploads/2019/07/303cc195e8596b65e146fb6fd796937e.jpg" alt="Ống đồng adidas" />
+          <p>Ống Đồng Adidas </p>
+          <p>150.000đ</p>
+          <button onclick="themVaoGio('Ong Dong ADIDAS', 150000)">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Tìm sản phẩm..." style="margin: 20px; padding: 10px; width: 300px;">
+
+  <div id="productList">
+    <div class="product">Áo </div>
+    <div class="product">Giày </div>
+    <div class="product">Phụ Kiện </div>
+    <div class="product">Áo Manchester United</div>
+    <div class="product">Phụ kiện băng đầu</div>
+  </div>
+
+  <script>
+      const searchInput = document.getElementById('searchInput');
+      const products = document.querySelectorAll('.product');
+      const noResult = document.getElementById('noResult');
+
+      searchInput.addEventListener('input', function () {
+        const keyword = this.value.toLowerCase();
+        let firstMatch = null;
+        let found = false;
+
+        products.forEach(product => {
+          const text = product.textContent.toLowerCase();
+          const isMatch = text.includes(keyword);
+          product.style.display = isMatch ? 'block' : 'none';
+
+        
+          product.classList.remove('highlight');
+
+          if (isMatch && !firstMatch) {
+            firstMatch = product;
+          }
+
+          if (isMatch) found = true;
+        });
+
+    
+        noResult.style.display = found ? 'none' : 'inline';
+
+      
+        if (firstMatch) {
+          firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstMatch.classList.add('highlight');
+          setTimeout(() => firstMatch.classList.remove('highlight'), 1500);
+        }
+      });
+    </script>
+
+
+
+
+    <!-- GIỎ HÀNG -->
+
+    <div class="section" id="gio-hang">
+      <h2>🛒 Giỏ Hàng</h2>
+      
+      <ul id="danhSachGioHang"></ul>
+      <p><strong>Tổng cộng: </strong><span id="tongTien">0</span> đ</p>
+      <button onclick="thanhtoan()">💳Thanh Toán</button>
+      <button onclick="xuatPDF()">📄 Xuất PDF</button>
+  
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>  
+    let gioHang = [];  
+
+      function themVaoGio(ten, gia) {
+        gioHang.push({ ten, gia });
+        capNhatGioHang();
+      }
+
+      function xoaSanPham(index) {
+        gioHang.splice(index, 1);
+        capNhatGioHang();
+      }
+
+      function capNhatGioHang() {
+        const danhSach = document.getElementById("danhSachGioHang");
+        const tongTien = document.getElementById("tongTien");
+        danhSach.innerHTML = "";
+        let tong = 0;
+
+       gioHang.forEach((sp, index) => {
+    const item = document.createElement("div");
+    item.className = "cart-item";
+    item.setAttribute("data-ten", sp.ten);
+    item.setAttribute("data-gia", sp.gia);
+    item.innerHTML = `${sp.ten} - ${sp.gia.toLocaleString()} đ 
+      <button onclick="xoaSanPham(${index})">Xóa</button>`;
+    danhSach.appendChild(item);
+    tong += sp.gia;
+        });
+
+        tongTien.textContent = tong.toLocaleString();
+      }
+
+      // tìm kiếm sản phẩm
+      const searchBox = document.getElementById("searchBox");
+      const productList = document.getElementById("productList");
+      searchBox.addEventListener("input", function () {
+        const tuKhoa = searchBox.value.toLowerCase();
+        const sanPhams = productList.querySelectorAll(".product");
+        sanPhams.forEach(sp => {
+          const ten = sp.getAttribute("data-name").toLowerCase();
+          if (ten.includes(tuKhoa)) {
+            sp.style.display = "";
+          } else {
+            sp.style.display = "none";
+          }
+        });
+      });
+    
+    </script>
+<div class="section" id="lich-su">
+  <h2>📜 Lịch Sử Mua Hàng</h2>
+  <ul id="danhSachLichSu"></ul>
+</div>
+    
+    <div class="section" id="lien-he">
+      <h2>📞 Thông Tin Liên Hệ</h2>
+      <p>Địa chỉ: 141 Lý Chính Thắng, TP.HCM</p>
+      <p>SĐT: 0929 193 183 </p>
+      <p>Email: toansport@gmail.com</p>
+    </div>
+
+    <footer>
+      © 2025 Toàn Sport. All rights reserved.
+    </footer>
+
+    <script>
+      
+      function thanhtoan() {
+    if (gioHang.length === 0) {
+      alert("🛑 Giỏ hàng trống!");
+      return;
+    }
+    // Lưu lịch sử vào localStorage
+const ngay = new Date().toLocaleString();
+const lichSu = JSON.parse(localStorage.getItem('lichSuMuaHang') || '[]');
+lichSu.push({
+  ngay,
+  donHang: [...gioHang]
+});
+localStorage.setItem('lichSuMuaHang', JSON.stringify(lichSu));
+  
+  document.getElementById('qrContainer').style.display = 'block';
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    let y = 20;
+
+
+const searchBox = document.getElementById("searchBox");
+if (searchBox) { // Chỉ chạy nếu ô tìm kiếm tồn tại
+    searchBox.addEventListener("input", () => {
+        const query = searchBox.value.toLowerCase();
+        const rows = document.querySelectorAll("#purchase-history tr");
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(query) ? "" : "none";
+        });
+    });
+}
+
+    // 📌 Tiêu đề
+    doc.setFontSize(16);
+    doc.text("Hoa Don Mua Hang", 75, y);
+    y += 10;
+
+    // 📌 Ngày giờ
+    doc.setFontSize(12);
+    doc.text(`Thoi Gian: ${ngay}`, 20, y);
+    y += 10;
+
+    // 📌 Bảng sản phẩm
+    doc.setFont("helvetica", "bold");
+    doc.text("STT", 20, y);
+    doc.text("Ten San Pham", 40, y);
+    doc.text("Giá", 160, y, { align: "right" });
+    doc.setFont("helvetica", "normal");
+    y += 8;
+
+    gioHang.forEach((sp, index) => {
+      doc.text(`${index + 1}`, 20, y);
+      doc.text(sp.ten, 40, y);
+      doc.text(`${sp.gia.toLocaleString()} đ`, 160, y, { align: "right" });
+      y += 8;
+    });
+
+    // 📌 Tổng tiền
+    const tong = gioHang.reduce((sum, sp) => sum + sp.gia, 0);
+    y += 10;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text(`Tong Tien: ${tong.toLocaleString()} đ`, 20, y);
+
+    doc.save("hoa_don.pdf");
+  }
+  let danhSachNguoiDung = []; // Dữ liệu tạm, bạn  có thể thay bằng lưu vào cơ sở dữ liệu thật
+
+
+  function dongQR() {
+    document.getElementById('qrContainer').style.display = 'none';
+  }
+
+    
+
+  // Gọi khi trang load
+  window.onload = function() {
+    hienThiLichSu();
+  };
+</script>
+  <!-- Mã QR thanh toán -->
+  <div id="qrContainer" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:white; padding:20px; border-radius:10px; box-shadow:0 0 10px black; z-index:2000; text-align:center;">
+  <h3 style="color: black;">📱 Quét mã để thanh toán</h3>
+    <img src="https://img.vietqr.io/image/970422-0929193183-compact2.png" alt="QR Thanh toán" style="width:250px; height:auto; margin: 10px 0;">
+    <p>Ngân hàng Agribank - Chủ TK: Nguyễn Hữu Toàn</p>
+    <button onclick="dongQR()" style="margin-top:10px; padding: 8px 16px;">Đóng</button>
+  </div>
+  </body>
+  </html>
